@@ -38,6 +38,7 @@ export const img = {
   clinic: q('1760614034530-a0d34463e03d', 1600),
   helena: qf('1617812191081-2a24e3f30e45'),
   rafael: qf('1666016300348-4910245e470a'),
+  banner: '/banner_preenchimento.png',
 };
 
 export const navLinks = [
@@ -115,12 +116,12 @@ export const testimonials = [
 ];
 
 export const cases = [
-  { treatment: 'Toxina botulínica', caption: 'Suavização das linhas da testa · 15 dias após a aplicação.', imgA: img.skin, imgB: img.face },
-  { treatment: 'Toxina botulínica', caption: 'Região da glabela · 21 dias após a aplicação.', imgA: img.skin, imgB: img.face },
-  { treatment: 'Preenchimento labial', caption: 'Hidratação e definição de contorno · resultado imediato.', imgA: img.skin, imgB: img.lips },
-  { treatment: 'Preenchimento labial', caption: 'Equilíbrio de volume · 7 dias após o procedimento.', imgA: img.face, imgB: img.lips },
-  { treatment: 'Limpeza de pele', caption: 'Redução de cravos e oleosidade · após 1 sessão.', imgA: img.skin, imgB: img.face },
-  { treatment: 'Depilação a laser', caption: 'Redução progressiva dos pelos · após 4 sessões.', imgA: img.skin, imgB: img.face },
+  { treatment: 'Toxina botulínica', caption: 'Suavização das linhas da testa · 15 dias após a aplicação.', imgA: '/antes_rugas.png', imgB: '/depois_rugas.png' },
+  { treatment: 'Preenchimento labial', caption: 'Hidratação e definição de contorno · resultado imediato.', imgA: '/antes_preenchimento.png', imgB: '/depois_preenchimento.png' },
+  { treatment: 'Limpeza de pele', caption: 'Redução de cravos e oleosidade · após 1 sessão.', imgA: '/antes_limpeza.png', imgB: '/depois_limpeza.png' },
+  { treatment: 'Toxina botulínica', caption: 'Região da glabela · 21 dias após a aplicação.', imgA: '/antes_rugas.png', imgB: '/depois_rugas.png' },
+  { treatment: 'Preenchimento labial', caption: 'Equilíbrio de volume · 7 dias após o procedimento.', imgA: '/antes_preenchimento.png', imgB: '/depois_preenchimento.png' },
+  { treatment: 'Depilação a laser', caption: 'Redução progressiva dos pelos · após 4 sessões.', imgA: '/antes_depilacao.png', imgB: '/depois_depilacao.png' },
 ];
 
 export const pilares = [
