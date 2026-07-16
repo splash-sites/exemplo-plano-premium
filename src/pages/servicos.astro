@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { seo, services, waDefault, img } from '../data/content';
+---
+<Layout title={seo.servicos.title} description={seo.servicos.description} path="/servicos" ogImage={img.lipsWide}>
+
+  <section class="max-w-[900px] mx-auto px-6 md:px-8 pt-20 pb-8 text-center" data-aos="fade-up">
+    <span class="text-[11.5px] tracking-[.24em] uppercase text-primary">Serviços</span>
+    <h1 class="font-serif text-4xl md:text-[46px] text-dark mt-4 mb-5 leading-[1.15]">Nossos tratamentos em detalhe</h1>
+    <p class="text-base leading-[1.7] text-muted">Informação clara para uma decisão consciente. Os resultados variam conforme as características de cada paciente e são sempre avaliados individualmente.</p>
+  </section>
+
+  <section class="max-w-[1060px] mx-auto px-6 md:px-8 py-10 pb-20 flex flex-col gap-8">
+    {services.map((s, i) => (
+      <div id={s.id} class="scroll-mt-24 bg-white border border-bordercol rounded-[20px] overflow-hidden grid md:grid-cols-[0.85fr_1.15fr]" data-aos="fade-up" data-aos-delay={i * 60}>
+        <div class="min-h-[220px] md:min-h-[340px] relative">
+          <img src={s.img} width="500" height="340" loading="lazy" alt={s.alt} class="w-full h-full object-cover" />
+        </div>
+        <div class="p-8 md:p-11">
+          <span class="text-[11px] tracking-[.2em] uppercase text-[#B48A93]">0{s.n}</span>
+          <h2 class="font-serif font-medium text-2xl md:text-[30px] text-dark mt-1.5 mb-5">{s.name}</h2>
+          <div class="flex flex-col gap-4">
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase text-primary mb-1">O que é</p>
+              <p class="text-[14.5px] leading-relaxed text-muted">{s.what}</p>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase text-primary mb-1">Para quem é indicado</p>
+              <p class="text-[14.5px] leading-relaxed text-muted">{s.forWhom}</p>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase text-primary mb-1">Duração da sessão</p>
+              <p class="text-[14.5px] text-muted">{s.duration}</p>
+            </div>
+            <div>
+              <p class="text-[11px] tracking-[.14em] uppercase text-primary mb-1">Cuidados pós-procedimento</p>
+              <p class="text-[14.5px] leading-relaxed text-muted">{s.aftercare}</p>
+            </div>
+          </div>
+          <a href={waDefault} target="_blank" rel="noopener" class="inline-block mt-6 bg-primary text-cream px-6 py-3 rounded-full text-[13.5px] font-medium hover:bg-dark transition-colors">Agende sua avaliação</a>
+        </div>
+      </div>
+    ))}
+    <p class="text-center text-[12.5px] text-[#9A7F84] max-w-[640px] mx-auto mt-3">As informações desta página têm caráter educativo e não substituem uma consulta. Nenhum procedimento garante resultado idêntico entre pacientes.</p>
+  </section>
+
+</Layout>

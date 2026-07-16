@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { seo, cases, img } from '../data/content';
+---
+<Layout title={seo.antesDepois.title} description={seo.antesDepois.description} path="/antes-depois" ogImage={img.faceHero}>
+
+  <section class="max-w-[900px] mx-auto px-6 md:px-8 pt-20 pb-5 text-center" data-aos="fade-up">
+    <span class="text-[11.5px] tracking-[.24em] uppercase text-primary">Galeria</span>
+    <h1 class="font-serif text-4xl md:text-[46px] text-dark mt-4 mb-5 leading-[1.15]">Antes e depois</h1>
+    <p class="text-[15px] leading-[1.7] text-muted">Casos organizados por tratamento. <strong class="text-primary font-medium">Os resultados variam de paciente para paciente</strong> e dependem de fatores individuais avaliados em consulta.</p>
+  </section>
+
+  <section class="max-w-[1180px] mx-auto px-6 md:px-8 py-10 pb-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+      {cases.map((c, i) => (
+        <div class="bg-white border border-bordercol rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay={i * 70}>
+          <div class="grid grid-cols-2 gap-0.5 h-[280px]">
+            <div class="relative overflow-hidden">
+              <img src={c.imgA} width="350" height="280" loading="lazy" alt={`${c.treatment} — antes`} class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-dark/80 text-cream text-[10px] tracking-[.12em] uppercase px-2.5 py-1 rounded-full">Antes</span>
+            </div>
+            <div class="relative overflow-hidden">
+              <img src={c.imgB} width="350" height="280" loading="lazy" alt={`${c.treatment} — depois`} class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-primary/90 text-cream text-[10px] tracking-[.12em] uppercase px-2.5 py-1 rounded-full">Depois</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="inline-block text-[10.5px] tracking-[.12em] uppercase text-primary bg-blush px-2.5 py-1 rounded-full mb-2">{c.treatment}</span>
+            <p class="text-[13.5px] text-softmuted">{c.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</Layout>

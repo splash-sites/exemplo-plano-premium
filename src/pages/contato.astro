@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { seo, site, horario, responsavelTecnica, img } from '../data/content';
+---
+<Layout title={seo.contato.title} description={seo.contato.description} path="/contato" ogImage={img.clinic}>
+
+  <section class="max-w-[900px] mx-auto px-6 md:px-8 pt-20 pb-5 text-center" data-aos="fade-up">
+    <span class="text-[11.5px] tracking-[.24em] uppercase text-primary">Contato</span>
+    <h1 class="font-serif text-4xl md:text-[46px] text-dark mt-4 mb-4 leading-[1.15]">Estamos à sua disposição</h1>
+    <p class="text-base leading-[1.7] text-muted">Envie sua mensagem ou fale diretamente pelo WhatsApp. Retornamos dentro do horário de atendimento.</p>
+  </section>
+
+  <section class="max-w-[1080px] mx-auto px-6 md:px-8 py-10 pb-16">
+    <div class="grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-start">
+
+      <form id="contact-form" class="bg-white border border-bordercol rounded-[20px] p-8 md:p-10" data-aos="fade-up">
+        <h2 class="font-serif font-medium text-2xl text-dark mb-6">Agende sua avaliação</h2>
+        <div class="flex flex-col gap-4.5">
+          <label class="block">
+            <span class="block text-xs tracking-[.06em] uppercase text-[#8A7373] mb-1.5">Nome</span>
+            <input id="f-name" required placeholder="Seu nome completo" class="w-full px-4 py-3 border border-[#E4D2D5] rounded-[10px] font-sans text-[14.5px] text-ink bg-[#FDFBFA] outline-none focus:border-primary" />
+          </label>
+          <label class="block">
+            <span class="block text-xs tracking-[.06em] uppercase text-[#8A7373] mb-1.5">E-mail</span>
+            <input id="f-email" type="email" placeholder="seu@email.com" class="w-full px-4 py-3 border border-[#E4D2D5] rounded-[10px] font-sans text-[14.5px] text-ink bg-[#FDFBFA] outline-none focus:border-primary" />
+          </label>
+          <label class="block">
+            <span class="block text-xs tracking-[.06em] uppercase text-[#8A7373] mb-1.5">Telefone</span>
+            <input id="f-tel" placeholder="(51) 90000-0000" class="w-full px-4 py-3 border border-[#E4D2D5] rounded-[10px] font-sans text-[14.5px] text-ink bg-[#FDFBFA] outline-none focus:border-primary" />
+          </label>
+          <label class="block">
+            <span class="block text-xs tracking-[.06em] uppercase text-[#8A7373] mb-1.5">Tratamento de interesse</span>
+            <select id="f-trat" class="w-full px-4 py-3 border border-[#E4D2D5] rounded-[10px] font-sans text-[14.5px] text-ink bg-[#FDFBFA] outline-none focus:border-primary">
+              <option>Toxina Botulínica</option>
+              <option>Preenchimento Labial</option>
+              <option>Limpeza de Pele Profunda</option>
+              <option>Depilação a Laser</option>
+              <option>Peeling de Diamante</option>
+              <option>Bioestimulador de Colágeno</option>
+              <option>Ainda não sei / avaliação geral</option>
+            </select>
+          </label>
+          <button type="submit" class="mt-1.5 bg-primary text-cream py-3.5 rounded-full font-sans text-[15px] font-medium hover:bg-dark transition-colors">Enviar pelo WhatsApp</button>
+          <p class="text-[11.5px] text-[#9A7F84] text-center mt-0.5">Ao enviar, abriremos o WhatsApp com sua mensagem pré-preenchida.</p>
+        </div>
+      </form>
+
+      <div class="flex flex-col gap-5.5">
+        <div class="bg-white border border-bordercol rounded-2xl p-7" data-aos="fade-up">
+          <p class="text-[11px] tracking-[.16em] uppercase text-primary mb-1.5">Endereço</p>
+          <p class="text-[15px] text-[#5A4747] leading-relaxed">{site.endereco}</p>
+        </div>
+        <div class="grid grid-cols-2 gap-5.5">
+          <div class="bg-white border border-bordercol rounded-2xl p-6" data-aos="fade-up" data-aos-delay="80">
+            <p class="text-[11px] tracking-[.16em] uppercase text-primary mb-1.5">Telefone</p>
+            <p class="text-[15px] text-[#5A4747]">{site.telefone}</p>
+          </div>
+          <div class="bg-white border border-bordercol rounded-2xl p-6" data-aos="fade-up" data-aos-delay="120">
+            <p class="text-[11px] tracking-[.16em] uppercase text-primary mb-1.5">WhatsApp</p>
+            <a href={`https://wa.me/55${site.whatsapp}`} target="_blank" rel="noopener" class="text-[15px] text-primary">{site.telefoneWhats}</a>
+          </div>
+        </div>
+        <div class="bg-white border border-bordercol rounded-2xl p-7" data-aos="fade-up" data-aos-delay="160">
+          <p class="text-[11px] tracking-[.16em] uppercase text-primary mb-2.5">Horário de atendimento</p>
+          {horario.map((h, i) => (
+            <div class:list={["flex justify-between text-sm text-[#5A4747] py-1", i > 0 && "border-t border-[#F2E6E8]"]}>
+              <span>{h.dia}</span><span>{h.hora}</span>
+            </div>
+          ))}
+        </div>
+        <div class="bg-white border border-bordercol rounded-2xl p-7" data-aos="fade-up" data-aos-delay="200">
+          <p class="text-[11px] tracking-[.16em] uppercase text-primary mb-2">Responsável técnica</p>
+          <p class="text-[13.5px] leading-relaxed text-[#7A6666]">{responsavelTecnica.nome}<br/>{responsavelTecnica.registro}<br/>{responsavelTecnica.especialidade}</p>
+        </div>
+        <div class="bg-white border border-bordercol rounded-2xl p-7" data-aos="fade-up" data-aos-delay="240">
+          <p class="text-[11px] tracking-[.16em] uppercase text-primary mb-2.5">Redes sociais</p>
+          <div class="flex flex-col gap-2">
+            <a href={`https://instagram.com/${site.instagram}`} target="_blank" rel="noopener" class="text-[14px] text-[#5A4747]">Instagram</a>
+            <a href={`https://wa.me/55${site.whatsapp}`} target="_blank" rel="noopener" class="text-[14px] text-[#5A4747]">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="localizacao" class="max-w-[1080px] mx-auto px-6 md:px-8 pb-16">
+    <h2 class="font-serif text-2xl text-dark mb-2">Localização</h2>
+    <p class="text-[15px] text-muted mb-5">{site.endereco}</p>
+    <div class="rounded-2xl overflow-hidden border border-bordercol" data-aos="fade-up">
+      <iframe
+        src={`https://www.google.com/maps?q=${site.enderecoEncoded}&output=embed`}
+        width="100%"
+        height="420"
+        loading="lazy"
+        style="border:0"
+        title="Localização da Éclat Estética Avançada"
+      ></iframe>
+    </div>
+  </section>
+
+  <p class="text-center text-xs text-[#9A7F84] pb-14">
+    Desenvolvido por <a href="https://instagram.com/splash.websites" target="_blank" rel="noopener" class="text-primary/70 hover:text-primary">Splash Websites</a>
+  </p>
+
+</Layout>
+
+<script>
+  // @ts-nocheck
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = (id) => document.getElementById(id)?.value || '';
+    const name = val('f-name') || '[nome]';
+    const email = val('f-email') || '—';
+    const tel = val('f-tel') || '—';
+    const trat = val('f-trat');
+    const msg = `Olá! Meu nome é ${name}. Gostaria de agendar uma avaliação de ${trat}. Telefone: ${tel}. E-mail: ${email}.`;
+    window.open(`https://wa.me/5551991280480?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+</script>
